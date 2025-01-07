@@ -1,0 +1,18 @@
+extend-exclude = ["src/mkdocstrings_extensions_simple_config_builder/__about__.py"]
+line-length = 79
+
+[lint]
+# Add the `line-too-long` rule to the enforced rule set. By default, Ruff omits
+# rules that overlap with the use of a formatter, like Black, but we can
+# override this behaviour by explicitly adding the rule.
+extend-select = ["E501", "D", "D204", "D213", "D404"]
+ignore = ["D212"]
+
+[lint.pydocstyle]
+convention = "numpy"
+
+[lint.per-file-ignores]
+"tests/*" = ["INP001"]
+
+[format]
+docstring-code-format = true
