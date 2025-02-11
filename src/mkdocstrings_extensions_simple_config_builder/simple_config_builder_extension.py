@@ -116,11 +116,14 @@ class SimpleConfigBuilderExtension(Extension):
                                         )
                                         data_dct["attrs"] = config_fields
                                 else:
-                                    data_dct["attrs"] = {
-                                        "default": stmt.value
-                                    }
-                                    if data_dct['attrs']['default'] is not None:
-                                        data_dct['attrs']['default'] = data_dct['attrs']['default'].value
+                                    data_dct["attrs"] = {"default": stmt.value}
+                                    if (
+                                        data_dct["attrs"]["default"]
+                                        is not None
+                                    ):
+                                        data_dct["attrs"]["default"] = (
+                                            data_dct["attrs"]["default"].value
+                                        )
                                 annotation = stmt.annotation
                                 data_dct["type"] = annotation.id
                             fields.append(data_dct)
