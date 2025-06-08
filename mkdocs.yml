@@ -1,0 +1,11 @@
+site_name: Example Project
+nav:
+  - Home: index.md
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            extensions:
+              - mkdocstrings_extensions_simple_config_builder
