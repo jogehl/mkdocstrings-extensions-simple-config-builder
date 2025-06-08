@@ -24,6 +24,8 @@ jobs:
           pytest -q
       - name: Build documentation
         run: mkdocs build --site-dir site
+        env:
+          PYTHONPATH: "${{ github.workspace }}/src:${{ github.workspace }}"
       - name: Deploy to Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
