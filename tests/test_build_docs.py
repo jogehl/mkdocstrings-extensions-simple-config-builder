@@ -2,8 +2,14 @@
 from pathlib import Path
 import subprocess
 import os
+import shutil
+import pytest
 
 
+@pytest.mark.skipif(
+    shutil.which("mkdocs") is None,
+    reason="mkdocs missing",
+)
 def test_build_docs(tmp_path):
     """Build the example docs using mkdocs."""
     docs_dir = Path(__file__).resolve().parents[1]
